@@ -9,7 +9,7 @@ import { EmployeeService } from '../employee.service';
 export class HomeComponent implements OnInit {
 
   employees:any =[]
-  arr = [1,3,4,5]
+  
 
   constructor(private employee:EmployeeService) { }
 
@@ -18,18 +18,21 @@ export class HomeComponent implements OnInit {
 
     
     this.employee.getEmployees().subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       this.employees = res
     })
 
   }
 
   deleteEmployee(id:any){
-    console.log(id);
+    // console.log(id);
     this.employee.deleteEmployee(id).subscribe(res=>{
-      console.log(res);
-      
-      
+      // console.log(res);
+      let status:any = res
+      if(status.status == "success"){
+        alert("deleted successfully")
+        this.ngOnInit()
+      }
     })
     
   }
