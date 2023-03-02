@@ -14,7 +14,7 @@ const worksheet = workbook.Sheets[sheetName]
 let data = XLSX.utils.sheet_to_json(worksheet);
 
 
-// code from stackoverflow starts here
+// ----------code from stackoverflow starts here---------------
 function ec(r, c){
     return XLSX.utils.encode_cell({r:r,c:c});
 }
@@ -29,15 +29,15 @@ function delete_row(ws, row_index){
     variable.e.r--
     ws['!ref'] = XLSX.utils.encode_range(variable.s, variable.e);
 }
-// code from stackoverflow ends here
+// -----------code from stackoverflow ends here---------------
+
+
 
 
 // for fetching all data from excel
 router.get('', (req, res)=>{
 
     try { 
-        console.log(data);
-
         // Return the data to frontend
         res.send(data).status(200);
 
@@ -66,7 +66,7 @@ router.delete('/delete-employee/:id', (req, res)=>{
                 XLSX.writeFile(workbook, 'employeeData.xlsx');
                 data = XLSX.utils.sheet_to_json(worksheet); // re-assigning all data into data variable 
                 console.log("after delete",data);
-                res.json({"status":"success"})
+                res.json({"status":"success"})  
                 
             }
         } 
