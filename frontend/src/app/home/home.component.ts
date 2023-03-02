@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.employee.deleteEmployee(id).subscribe(res=>{
       console.log(res);
       
+      
     })
     
   }

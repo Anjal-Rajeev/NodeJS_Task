@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class EmployeeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } 
 
   api: string = "http://localhost:3000";
 
@@ -15,7 +15,7 @@ export class EmployeeService {
   }
 
   deleteEmployee(id:any){
-    return this.http.delete(`${this.api}/delete-employee/${id}`)
+    return this.http.delete(`${this.api}/employees/delete-employee/${id}`)
   }
 
 }
